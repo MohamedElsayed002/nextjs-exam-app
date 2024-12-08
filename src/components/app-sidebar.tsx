@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 const items = [
   {
     title: "Dashboard",
-    url: "/",
+    url: "/home",
     icon: LayoutDashboard,
   },
   {
