@@ -46,6 +46,13 @@ const HomePage = () => {
                 </form>
             </div>
             <UserInfo/>
+            <div className="w-4/5 rounded-md px-6 py-5 my-10 mx-auto bg-gray-100 ">
+                <div className="flex justify-between">
+                    <h1 className="text-blue-600">Exams</h1>
+                    <h2 className="text-blue-600">View All</h2>
+                </div>
+
+            </div>
         </>
     )
 }
