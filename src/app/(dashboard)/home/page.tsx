@@ -51,7 +51,28 @@ const HomePage = () => {
                     <h1 className="text-blue-600">Exams</h1>
                     <h2 className="text-blue-600">View All</h2>
                 </div>
+                <div className="my-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <div>
+                        <Image className="rounded-md" src='/bird.jpg' width={500} height={500} alt='i' />
+                    </div>
+                    <div>
+                    <Image className="rounded-md" src='/bird.jpg' width={400} height={400} alt='i' />
 
+                    </div>
+                    <div>
+                    <Image className="rounded-md" src='/bird.jpg' width={400} height={400} alt='i' />
+                    </div>
+                    <div>
+                    <Image className="rounded-md" src='/bird.jpg' width={400} height={400} alt='i' />
+                    </div>
+                    <div>
+                    <Image className="rounded-md" src='/bird.jpg' width={400} height={400} alt='i' />
+                    </div>
+                    <div>
+                    <Image className="rounded-md" src='/bird.jpg' width={400} height={400} alt='i' />
+
+                    </div>
+                </div>
             </div>
         </>
     )

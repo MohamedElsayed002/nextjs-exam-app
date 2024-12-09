@@ -30,14 +30,15 @@ const UserInfo = () => {
             <Image 
                 src='/bird.jpg'
                 alt='bird'
+                className=""
                 width={350}
                 height={100}
 
             />
-            <div className="flex flex-col gap-6">
+            <div className="flex mx-12 md:mx-0 flex-col gap-6">
             <h1 className="text-2xl text-blue-600 font-bold mt-5">Mohamed Elsayed</h1>
             <p>Front End Developer</p>
-            <Progress className="text-blue-500 mt-2" value={33} />
+            <Progress className="text-blue-500 mt-2" value={70} />
             <div className="flex">
             {Icons.map((item) => {
                 return (
@@ -59,11 +60,3 @@ const UserInfo = () => {
 export default UserInfo
 
 
-{/* <div className="md:max-w-4xl w-4/5 mx-auto px-5 py-5 bg-gray-100 rounded-md">
-<div className="flex flex-col md:flex-row">
-    <Image   src='/bird.jpg' alt='bird'width={200} height={150}/>
-    <div className="flex flex-col px-5">
-        <h1 className="text-xl text-blue-500 font-bold">Mohamed Elsayed</h1>
-    </div>
-</div>
-</div> */}

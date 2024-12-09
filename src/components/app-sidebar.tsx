@@ -1,5 +1,5 @@
 'use client'
-import { Calendar, Home, Inbox,LogOut, Search, RotateCw, Settings , LayoutDashboard } from "lucide-react"
+import { Calendar, Home, Globe, Inbox,LogOut, Search, RotateCw, Settings , LayoutDashboard } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -11,7 +11,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { useRouter } from "next/router";
-
+import Link from "next/link";
 // Menu items.
 const items = [
   {
@@ -40,7 +40,12 @@ export function AppSidebar() {
       <SidebarContent className="p-5">
         <SidebarGroup>
           <SidebarGroupLabel>
-            <h1 className="text-2xl font-bold ">EXAM APP</h1>
+            <Link href='/home'>
+              <div className="flex items-center gap-1">
+                <h1 className="text-2xl font-bold text-blue-500">EXAM APP</h1>
+                <span className="spin-in-2 spinner animate-spin "><Globe className="text-blue-500"/></span>
+              </div>
+            </Link>
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="mt-5">
