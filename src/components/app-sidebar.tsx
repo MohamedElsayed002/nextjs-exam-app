@@ -10,8 +10,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 // Menu items.
 const items = [
   {
@@ -32,7 +32,8 @@ const items = [
 ]
 
 export function AppSidebar() {
-
+  const path = usePathname()
+  console.log(path)
   // const router = useRouter()
   // console.log(router)
   return (
@@ -50,9 +51,10 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu className="mt-5">
               {items.map((item) => {
+                const isActive = item.url === path
                 return (
                   <SidebarMenuItem className="my-2" key={item.title}>
-                  <SidebarMenuButton className="" asChild>
+                  <SidebarMenuButton className={`${isActive ? 'bg-blue-500 text-white' : null}`} asChild>
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
