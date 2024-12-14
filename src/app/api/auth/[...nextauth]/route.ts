@@ -26,6 +26,7 @@ export const OPTIONS: AuthOptions = {
             }
           })
 
+          console.log(res)
         if(res.data.user) {
           return {
             id : res.data.user._id,

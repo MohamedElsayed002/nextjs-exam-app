@@ -14,8 +14,9 @@ import LeftLayout from '../components/LeftLayout'
 import Icons from '../components/Icons'
 import Dropdown from '../components/dropdown'
 import ButtonIcons from '../components/ButtonsIcons'
-
-
+import { useAppDispatch } from '@/app/hook'
+import { loginUser } from '@/features/user/userSlice'
+import axios from 'axios'
 const SubmitBtn = () => {
   const { pending } = useFormStatus()
 
@@ -36,7 +37,7 @@ const LoginPage = () => {
 
 
   const { toast } = useToast()
-
+  const dispatch = useAppDispatch()
   const {
     register,
     handleSubmit,
@@ -44,26 +45,39 @@ const LoginPage = () => {
     formState: { errors }
   } = useForm<Inputs>()
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { email, password } = data
-    const res = await signIn("credentials", { email, password, callbackUrl: '/', redirect: false })
-    if (res?.error) {
-      toast({
-        title: "Error",
-        description: res.error,
-        variant: 'destructive'
+  // const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  //   const { email, password } = data
+  //   const res = await signIn("credentials", { email, password, callbackUrl: '/', redirect: false })
+  //   if (res?.error) {
+  //     toast({
+  //       title: "Error",
+  //       description: res.error,
+  //       variant: 'destructive'
+  //     })
+  //     return
+  //   }
+  //   // dispatch(loginUser(res))
+  //   toast({
+  //     title: 'Logged in successfully',
+  //     variant: 'default'
+  //   })
+
+  //   setTimeout(() => {
+  //     redirect('/home')
+  //   }, 2000)
+
+  // }
+
+  const onSubmit : SubmitHandler<Inputs> = async (data) => {
+    const {email , password} = data
+    try {
+      const response = await axios.post('https://exam.elevateegy.com/api/v1/auth/signin',{
+        email,password
       })
-      return
+      dispatch(loginUser(response.data))
+    }catch(error) {
+      console.log(error)
     }
-    toast({
-      title: 'Logged in successfully',
-      variant: 'default'
-    })
-
-    setTimeout(() => {
-      redirect('/')
-    }, 2000)
-
   }
 
   return (
